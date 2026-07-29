@@ -15,3 +15,9 @@ Then open `http://127.0.0.1:8000/`.
 ## Deploy with Vercel
 
 Import this GitHub repository into Vercel. Keep the project root as the repository root, choose the `Other` framework preset, and leave the build command and output directory blank. Vercel will serve the root `index.html` file.
+
+## GitHub Pages fallback
+
+This repository also includes a GitHub Pages workflow. In the repository settings, open **Pages**, set the source to **GitHub Actions**, and the site will publish at:
+
+`https://makaio660.github.io/Daily-Reminder/`
