@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#142033" />
+    <title>Life Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Daily organizer</p>
+          <h1>Life Planner</h1>
+        <p id="todayProgress" class="progress-text" aria-live="polite">0/0 complete today</p>
+        </div>
+        <button id="testNotification" class="icon-button" type="button" title="Send a test reminder">
+          Test reminder
+        </button>
+      </section>
+
+      <section class="planner-grid">
+        <div class="side-stack">
+        <form id="taskForm" class="panel task-form">
+          <div class="panel-heading">
+            <h2>Create task</h2>
+            <span class="pill">Saved on this browser</span>
+          </div>
+
+          <label>
+            Suggested task
+            <select id="suggestedTask">
+              <option value="">Choose a suggestion...</option>
+            </select>
+          </label>
+
+          <label>
+            Task title
+            <input id="taskTitle" type="text" placeholder="What do you need to do?" required />
+          </label>
+
+          <div class="two-column">
+            <label>
+              Category
+              <input id="taskCategory" type="text" placeholder="Health, School, Work..." value="Planning" />
+            </label>
+
+            <label>
+              Priority
+              <select id="taskPriority">
+                <option>Low</option>
+                <option selected>Medium</option>
+                <option>High</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="two-column">
+            <label>
+              Date
+              <input id="taskDate" type="date" required />
+            </label>
+
+            <label>
+              Time
+              <input id="taskTime" type="time" required />
+            </label>
+          </div>
+
+          <label>
+            Repeat
+            <select id="taskRepeat">
+              <option value="none">One time</option>
+              <option value="daily">Daily</option>
+              <option value="weekdays">Weekdays</option>
+              <option value="weekly">Weekly</option>
+            </select>
+          </label>
+
+          <label>
+            Optional notes
+            <textarea id="taskNotes" rows="4" placeholder="Add anything useful..."></textarea>
+          </label>
+
+          <button class="primary-button" type="submit">Add task</button>
+        </form>
+
+        <section class="panel reminder-settings">
+          <div class="panel-heading">
+            <h2>Reminders</h2>
+            <span id="reminderStatus" class="pill">On</span>
+          </div>
+
+          <label class="toggle-row">
+            <input id="remindersEnabled" type="checkbox" />
+            <span>Enable reminders</span>
+          </label>
+
+          <label class="toggle-row">
+            <input id="quietEnabled" type="checkbox" />
+            <span>Silent time</span>
+          </label>
+
+          <div class="two-column">
+            <label>
+              Starts
+              <input id="quietStart" type="time" />
+            </label>
+
+            <label>
+              Ends
+              <input id="quietEnd" type="time" />
+            </label>
+          </div>
+        </section>
+        </div>
+
+        <section class="panel schedule-panel">
+          <div class="panel-heading">
+            <h2>Schedule</h2>
+            <span id="taskCount" class="pill">0 tasks</span>
+          </div>
+
+          <nav id="viewTabs" class="tabs" aria-label="Planner views"></nav>
+
+          <div id="taskList" class="task-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="taskTemplate">
+      <article class="task-card">
+        <div class="task-main">
+          <button class="check-button" type="button" aria-label="Toggle completed"></button>
+          <div class="task-copy">
+            <div class="task-title-row">
+              <h3></h3>
+              <span class="priority-badge"></span>
+            </div>
+            <p class="task-meta"></p>
+            <p class="task-notes"></p>
+          </div>
+        </div>
+        <div class="task-actions">
+          <button type="button" data-action="one">+1 day</button>
+          <button type="button" data-action="two">+2 days</button>
+          <button type="button" data-action="tomorrow">Tomorrow 9 AM</button>
+          <button class="danger" type="button" data-action="delete">Delete</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>

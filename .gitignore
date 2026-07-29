@@ -1,0 +1,6 @@
+.DS_Store
+.pnpm-store/
+LifePlannerApp/node_modules/
+LifePlannerApp/.expo/
+LifePlannerApp/.expo-shared/
+LifePlannerApp/dist/
